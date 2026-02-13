@@ -57,7 +57,7 @@
     .hero::before{
       content:"";
       position:absolute; inset:-3px;
-      background: 
+      background:
         radial-gradient(800px 350px at 25% 10%, rgba(255,51,102,.20), transparent 65%),
         radial-gradient(750px 350px at 85% 35%, rgba(170,102,255,.18), transparent 65%);
       pointer-events:none;
@@ -351,28 +351,31 @@
             <h2>Mi cartita</h2>
             <div class="divider"></div>
             <p id="letterText">
-            Helloooooo :D 
-              Ya que cumples en una fecha que es un tantito complicada de saber qué celebrarte, te hice esto con mucho cariño 💌 
-              Primero, quiero desearte un feliz cumpleaños. Que Dios te bendiga, te permita compartir y disfrutar este día, 
-              además de que te acompañe y te proteja siempre 🎂 
-              Le pido a Dios que, por más años que cumplas, nunca cambie esa linda, 
-              divertida y agradable personalidad y forma de ser tuya (aunque me das chicha a veces JAJA) 😅 
-              También le pido que logres todos tus sueños, metas y todo lo que te propongas.
-              Me alegraré siempre, por más pequeño que sea el logro que consigas, y espero estar ahí para verlo y/o escuchar que lo lograste. 
-              Pero que nunca se te olvide agradecer y tomar en cuenta a Dios en tus decisiones ✨ 
-              Y solo me queda decirte: ¡HAPPY BIRTHDAY! 🎉 
-              
-              Además, Happy Valentine’s Day 💘
-              Te quiero agradecer por siempre escucharme, estar pendiente de mí y que sepas que has sido de gran apoyo para mí 🤍 
-              Le doy muchas gracias a Dios por haberme dado la dicha de ponerte en mi vida, porque a veces me has hecho saber o recordar 
-              cosas que realmente debía escuchar, y hacerme percatar de aspectos de mí que debo cambiar 🙏 
-              Te pido disculpas porque a veces tengo una reacción o un carácter complicado y he dicho cosas que te han lastimado, 
-              pero te agradezco porque aun así me aguantas y me has perdonado 💛 
-              Que sepas que poquito a poco he ido trabajando en eso 🌱 
-              Y que sepas que puedes contar conmigo para todo lo que necesites y quieras 🤝 
-              Te quiero mucho y que tengas un muy bonito día 💖
+Helloooooo :D
 
-              
+Ya que cumples en una fecha que es un tantito complicada de saber qué celebrarte, te hice esto con mucho cariño 💌
+
+Primero, quiero desearte un feliz cumpleaños. Que Dios te bendiga, te permita compartir y disfrutar este día, además de que te acompañe y te proteja siempre 🎂
+
+Le pido a Dios que, por más años que cumplas, nunca cambie esa linda, divertida y agradable personalidad y forma de ser tuya (aunque me das chicha a veces JAJA) 😅
+
+También le pido que logres todos tus sueños, metas y todo lo que te propongas. Me alegraré siempre, por más pequeño que sea el logro que consigas, y espero estar ahí para verlo y/o escuchar que lo lograste. Pero que nunca se te olvide agradecer y tomar en cuenta a Dios en tus decisiones ✨
+
+Y solo me queda decirte: ¡HAPPY BIRTHDAY! 🎉
+
+Además, Happy Valentine’s Day 💘
+
+Te quiero agradecer por siempre escucharme, estar pendiente de mí y que sepas que has sido de gran apoyo para mí 🤍
+
+Le doy muchas gracias a Dios por haberme dado la dicha de ponerte en mi vida, porque a veces me has hecho saber o recordar cosas que realmente debía escuchar, y hacerme percatar de aspectos de mí que debo cambiar 🙏
+
+Te pido disculpas porque a veces tengo una reacción o un carácter complicado y he dicho cosas que te han lastimado, pero te agradezco porque aun así me aguantas y me has perdonado 💛
+
+Que sepas que poquito a poco he ido trabajando en eso 🌱
+
+Y que sepas que puedes contar conmigo para todo lo que necesites y quieras 🤝
+
+Te quiero mucho y que tengas un muy bonito día 💖
             </p>
             <button class="btn-primary" id="openModalFromLetter">💖 Tengo una pregunta…</button>
           </div>
@@ -397,9 +400,7 @@
     <div class="modal pop-in">
       <div class="inner">
         <h3 id="questionTitle">¿Querés ser mi San Valentín? 💘</h3>
-        <p id="questionText">
-SIIIII O NOOOOOOOO???
-        </p>
+        <p id="questionText">SIIIII O NOOOOOOOO???</p>
         <div class="row">
           <button class="btn-primary" id="yesBtn">CLAAAARO</button>
           <button class="btn-ghost" id="maybeBtn">No por narizon</button>
@@ -415,7 +416,10 @@ SIIIII O NOOOOOOOO???
       toName: "Tiffany",
       question: "¿Querés ser mi San Valentín? 💘",
       yesTitle: "SIIIIII",
-      yesMsg: "Happy birth and valentine's day Helloooooo :D
+      // IMPORTANTE: usar backticks ` ` para texto con saltos de línea
+      yesMsg: `Happy birth and valentine's day 💘🎂
+
+Helloooooo :D
 
 Ya que cumples en una fecha que es un tantito complicada de saber qué celebrarte, te hice esto con mucho cariño 💌
 
@@ -439,7 +443,7 @@ Que sepas que poquito a poco he ido trabajando en eso 🌱
 
 Y que sepas que puedes contar conmigo para todo lo que necesites y quieras 🤝
 
-Te quiero mucho y que tengas un muy bonito día 💖",
+Te quiero mucho y que tengas un muy bonito día 💖`,
       maybeTitle: "Está bien 😌",
       maybeMsg: "No hay presión. Igual quería que supieras lo que siento 💗",
     };
@@ -462,12 +466,16 @@ Te quiero mucho y que tengas un muy bonito día 💖",
 
     playBtn.addEventListener("click", async () => {
       try{
+        // asegurar que no esté muteado por accidente
+        music.muted = false;
+        music.volume = 1;
         await music.play();
         playBtn.style.display = "none";
         pauseBtn.style.display = "inline-block";
         burstHearts(12);
       }catch(e){
         console.log("No se pudo reproducir:", e);
+        alert("No se pudo reproducir la música. Revisa que 'cancion.mp3' esté subido y el nombre coincida.");
       }
     });
 
@@ -506,7 +514,8 @@ Te quiero mucho y que tengas un muy bonito día 💖",
       }
     }
 
-    const heartInterval = setInterval(() => spawnHeart(), 450);
+    // Corazones suaves por defecto
+    setInterval(() => spawnHeart(), 450);
     heartBtn.addEventListener("click", () => burstHearts(18));
 
     // ====== Modal final + confetti ======
@@ -540,7 +549,7 @@ Te quiero mucho y que tengas un muy bonito día 💖",
     const yesBtn = document.getElementById("yesBtn");
     const maybeBtn = document.getElementById("maybeBtn");
     const questionText = document.getElementById("questionText");
-    
+
     let clickCount = 0;
     const maxClicks = 6;
 
@@ -551,7 +560,6 @@ Te quiero mucho y que tengas un muy bonito día 💖",
       maybeBtn.textContent = "Cerrar";
       shootConfetti();
       burstHearts(24);
-      // Reset styles
       yesBtn.style.transform = "";
       maybeBtn.style.transform = "";
       maybeBtn.style.opacity = "";
@@ -560,60 +568,54 @@ Te quiero mucho y que tengas un muy bonito día 💖",
     maybeBtn.addEventListener("click", () => {
       if(maybeBtn.textContent === "Cerrar"){
         closeModal();
-        // Reset para la próxima vez
         clickCount = 0;
         yesBtn.style.transform = "";
         maybeBtn.style.transform = "";
         maybeBtn.style.opacity = "";
-        maybeBtn.textContent = " Nel";
+        maybeBtn.textContent = "No por narizon";
         questionTitle.textContent = CONFIG.question;
-        questionText.textContent = "SIIII O NOOOO?? Yo se que si quieres :D";
+        questionText.textContent = "SIIIIII O NOOOOOOOO???";
         yesBtn.style.display = "inline-block";
         return;
       }
-      
+
       clickCount++;
-      
+
       if(clickCount >= maxClicks){
-        // Después de 6 clicks, acepta automáticamente
-        questionTitle.textContent = "Sabía que dirías que sí ";
+        questionTitle.textContent = "Sabía que dirías que sí 😏";
         questionText.textContent = "No podías resistirte, ¿verdad? Me hiciste muy feliz ✨";
         yesBtn.style.display = "none";
         maybeBtn.textContent = "Cerrar";
         shootConfetti();
         burstHearts(30);
-        // Reset
         clickCount = 0;
         yesBtn.style.transform = "";
         maybeBtn.style.transform = "";
         maybeBtn.style.opacity = "";
         return;
       }
-      
-      // Calcular escalas
-      const yesScale = 1 + (clickCount * 0.25); // Crece 25% cada vez
-      const maybeScale = 1 - (clickCount * 0.15); // Decrece 15% cada vez
-      const maybeOpacity = 1 - (clickCount * 0.15); // Se hace más transparente
-      
-      // Aplicar transformaciones
+
+      const yesScale = 1 + (clickCount * 0.25);
+      const maybeScale = 1 - (clickCount * 0.15);
+      const maybeOpacity = 1 - (clickCount * 0.15);
+
       yesBtn.style.transform = `scale(${yesScale})`;
       yesBtn.style.transition = "transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)";
-      
+
       maybeBtn.style.transform = `scale(${maybeScale})`;
       maybeBtn.style.opacity = maybeOpacity;
       maybeBtn.style.transition = "transform 0.3s ease, opacity 0.3s ease";
-      
-      // Mensajes divertidos
+
       const messages = [
-        "¿Estás segura? El botón de Sí se ve mejor ",
-        "Yo se que si quieres",
-        "No hay brake mami",
-        "Diga que si nada masss JAJAJA",
-        "¿Todavía no? Es que tu no te mandas sola JAJAJAJ",
-        
+        "¿Estás segura? El botón de Sí se ve mejor 😳",
+        "Yo sé que sí quieres 😼",
+        "No hay brake mami 😭",
+        "Diga que sí nada masss JAJAJA 😅",
+        "¿Todavía no? Es que tú no te mandas sola JAJAJAJ 🤣",
+        "Ok, ya, ya… te toca decir que sí 😏"
       ];
-      
-      questionText.textContent = messages[clickCount - 1];
+
+      questionText.textContent = messages[Math.min(clickCount - 1, messages.length - 1)];
       burstHearts(6);
     });
 
@@ -705,5 +707,3 @@ Te quiero mucho y que tengas un muy bonito día 💖",
   </script>
 </body>
 </html>
-
-
