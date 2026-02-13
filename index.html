@@ -250,7 +250,15 @@
     }
     .modal .inner{padding:28px 24px}
     .modal h3{margin:0 0 10px; font-size:26px; font-weight:800}
-    .modal p{margin:0 0 18px; color:var(--muted); line-height:1.6; font-size: 16px}
+    .modal p{
+  margin:0 0 18px;
+  color:var(--muted);
+  line-height:1.6;
+  font-size:16px;
+  white-space: pre-line;     /* respeta saltos de línea */
+  max-height: 55vh;          /* que no se salga */
+  overflow-y: auto;          /* scroll si es largo */
+}
     .modal .row{display:flex; gap:12px; flex-wrap:wrap}
     .modal .row button{flex:1; min-width: 140px}
     .hint{
@@ -555,7 +563,7 @@ Te quiero mucho y que tengas un muy bonito día 💖`,
 
     yesBtn.addEventListener("click", () => {
       questionTitle.textContent = CONFIG.yesTitle;
-      questionText.textContent = CONFIG.yesMsg;
+      questionText.innerText = CONFIG.yesMsg;
       yesBtn.style.display = "none";
       maybeBtn.textContent = "Cerrar";
       shootConfetti();
@@ -707,3 +715,4 @@ Te quiero mucho y que tengas un muy bonito día 💖`,
   </script>
 </body>
 </html>
+
